@@ -103,28 +103,26 @@ turtle.register_shape("trash.gif") #Add trash picture
                       # in the same folder as this Python script
 
 food = turtle.clone()
-food.shape("trash.gif")
+food.shape("trash.gif") 
 
-border = turtle.clone()
-border.shape("square")
-border_pos = [(100,140), (100,120), (100,100), (100,80),(100,60), (100, 40), (100,20),(-100, -200), (-80, -200), (-60, -200), ( -40,-200), (-20, -200), (0, -200), (20, -200), (40, -200), (60, -200), (-100, -200), (-80, -200), (-60, -200), ( -40,-200), (-20, -200), (0, -200), (20, -200), (40, -200), (60, -200), (80,-300), (100,-300)]
+border = turtle.clone
+border.shape("line")
+border_pos = ([(100,137), (100,136), (-100,-45), (108,-100)]
+#border_stamps = []
 
-
-border_stamps = []
-
-for border_1 in border_pos:
+for border_1 in border_pos :
     border.goto(border_1)
-    bor = border.stamp()
+    bor = border
     border_stamps.append(bor)
     turtle.hideturtle()
 
-"""
 def make_border():
     min_x_2=-int(SIZE_X/2/SQUARE_SIZE)+1
     max_x_2=int(SIZE_X/2/SQUARE_SIZE)-1
     min_y_2=-int(SIZE_Y/2/SQUARE_SIZE)+1
     max_y_2=int(SIZE_Y/2/SQUARE_SIZE)-1
     
+    #Pick a position that is a random multiple of SQUARE_SIZE
     border_x = random.randint(min_x_2,max_x_2)*SQUARE_SIZE
     border_y = random.randint(min_y_2,max_y_2)*SQUARE_SIZE
 
@@ -132,8 +130,9 @@ def make_border():
     border_pos.append(border.pos())
     der = border.stamp()
     border_stamps.append(der)
-"""
 
+if snake.pos() in border_stamps:
+    quit()
 
 
 #Locations of food
@@ -185,9 +184,6 @@ def move_snake():
     
     if snake.pos() in pos_list:
         quit()
-    elif snake.pos() in border_pos:
-        quit()
-
 
 #Make the snake stamp a new square on the screen
     new_stamp()
